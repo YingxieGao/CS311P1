@@ -1,5 +1,5 @@
 /**
- * Team members:
+ * Team members: Jiawei Deng
  * @author John Doe
  * @author Jane Doe
  * 
@@ -7,48 +7,60 @@
  */
 public class RBTree {
 	
+	Node root;
+	Node NILNode;
+	int size;
+	int height;
+	
+	
 	/**
-	 * RB Tree constructor. It initializes nil node as well.
+	 * RB Tree constructor with no parameter. It 
+	 * initializes nil node as well.
 	 */
 	public RBTree() {
 		//TODO: Add code as needed.
+		private Node root;
+		private Node NILNode;
+		private int size;
+		private int height;
+		
 	}
 	
 	/**
-	 * Returns the root of teh tree.
-	 * @return
+	 * Returns the root Node.
+	 * @return root
 	 */
 	public Node getRoot() {
 		//TODO: Modify it accordingly.
-		return null;
+		return root;
 	}
 	
 	/**
 	 * Returns reference for the nil node, for the rbTree.
-	 * @return
+	 * @return NILNode
 	 */
 	public Node getNILNode() {
 		//TODO: Modify it accordingly.
-		return null;
+		return NILNode;
 	}
 	
 	/**
 	 * Returns the number of internal nodes in the tree.
-	 * @return
+	 * @return size
 	 */
 	public int getSize() {
 		//TODO: Modify it accordingly.
-		return 0;
+		return size;
 	}
 	
 	
 	/**
 	 * Returns the height of the tree.
-	 * @return
+	 * @return height
 	 */
 	public int getHeight() {
 		//TODO: Modify it accordingly.
-		return 0;
+		return height;
 	}
 	
 	//Add more functions as  you see fit.
