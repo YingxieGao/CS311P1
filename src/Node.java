@@ -19,6 +19,7 @@ public class Node {
 	Endpoint endpoint;
 	Endpoint emax;
 	int color;
+	Node nil;
 
 	/**
 	 * Initializes a new Node object with its key, and the p.
@@ -30,8 +31,8 @@ public class Node {
 	 */
 	public Node(int key, int p, Endpoint endpoint)
 	{
-		right = null;
-		left = null;
+		right = nil;
+		left = nil;
 		parent = null;
 		this.key = key;
 		this.p = p;
@@ -155,7 +156,7 @@ public class Node {
 	 * @return
 	 */
 	public boolean isNil() {
-		if(this.left == null && this.right ==null)
+		if(this == nil)
 		return true;
 		else
 		return false;
