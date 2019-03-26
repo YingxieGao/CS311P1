@@ -34,7 +34,7 @@ public class Node {
 		parent = null;
 		this.key = key;
 		this.p = p;
-		if(this==T.nil){
+		if(this.isNil()==true){
 			val = 0;
 		}
 		else{
@@ -137,4 +137,10 @@ public class Node {
 	}
 
 	// Add more functions as you see fit.
+	public boolean isNil() {
+		if(this.left == null && this.right ==null)
+		return true;
+		else
+		return false;
+	}
 }
