@@ -15,7 +15,7 @@ public class Endpoint {
 	 * @return
 	 */
 	public int getValue() {
-		
+		dsfdsf
 		return value;
 	}
 }
