@@ -42,7 +42,19 @@ public class Node {
 		}
 		maxval = Math.max(this.left.maxval, Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
 		this.endpoint = endpoint;
-		//TODO: Add code as needed.  how to get emax;
+		if(maxval == this.left.maxval)
+		{
+			emax = this.left.endpoint;
+		}
+		if(maxval == this.left.val + this.p)
+		{
+			emax = this.endpoint;
+		}
+		if(maxval == this.left.val + this.p + this.right.maxval)
+		{
+			emax = this.right.endpoint;
+		}
+
 		color = 1;
 	}
 	/**
