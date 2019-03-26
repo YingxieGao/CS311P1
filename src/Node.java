@@ -136,7 +136,11 @@ public class Node {
 		return color;
 	}
 
-	// Add more functions as you see fit.
+	/**
+	 * Returns if this node is nil.
+	 * 
+	 * @return
+	 */
 	public boolean isNil() {
 		if(this.left == null && this.right ==null)
 		return true;
