@@ -1,7 +1,10 @@
 /**
  * Team members:
+ * Yingxie Gao
+ * Zhenwei Su
+ * Jiawei Deng
+ * 
  * @author Yingxie Gao
- * @author 
  * 
  * Endpoint class for Node.
  */

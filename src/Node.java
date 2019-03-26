@@ -1,9 +1,10 @@
 /**
  * Team members:
+ * Yingxie Gao
+ * Zhenwei Su
+ * Jiawei Deng
  * 
  * @author Yingxie Gao
- * @author 
- * 
  *         Node class for RBTree.
  */
 public class Node {
