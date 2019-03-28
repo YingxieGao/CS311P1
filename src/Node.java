@@ -60,16 +60,36 @@ public class Node {
 
 		color = 1;
 	}
+
+	/**
+	 * Constructor for NILNode
+	 */
 	public Node() {
-		right = null;
-		left = null;
-		parent = null;
+		right = NILNode;
+		left = NILNode;
+		parent = NILNode;
 		val = 0;
 		maxval = 0;
 		endpoint = null;
 		emax = null;
 		color = 1;
 	}
+
+	/*
+	static Node NILNode;
+    static {
+	NILNode = new Node();
+	NILNode.parent = NIL;
+	NILNode.left = NIL;
+	NILNode.right = NIL;
+	NILNode.val = 0;
+	NILNode.maxval = 0;
+	NILNode.endpoint = null;
+	NILNode.emax = null;
+	NILNode.color = 1;
+	}
+	*/
+	
 	/**
 	 * Returns the parent of this node.
 	 * @return
