@@ -9,6 +9,8 @@
  */
 public class Node {
 
+	private static final Node NILNode = new Node();
+
 	Node right;
 	Node left;
 	Node parent;
@@ -19,8 +21,7 @@ public class Node {
 	Endpoint endpoint;
 	Endpoint emax;
 	int color;
-	Node nil;
-
+	
 	/**
 	 * Initializes a new Node object with its key, and the p.
 	 * 
@@ -31,8 +32,8 @@ public class Node {
 	 */
 	public Node(int key, int p, Endpoint endpoint)
 	{
-		right = nil;
-		left = nil;
+		right = NILNode;
+		left = NILNode;
 		parent = null;
 		this.key = key;
 		this.p = p;
@@ -57,6 +58,16 @@ public class Node {
 			emax = this.right.endpoint;
 		}
 
+		color = 1;
+	}
+	public Node() {
+		right = null;
+		left = null;
+		parent = null;
+		val = 0;
+		maxval = 0;
+		endpoint = null;
+		emax = null;
 		color = 1;
 	}
 	/**
@@ -156,7 +167,7 @@ public class Node {
 	 * @return
 	 */
 	public boolean isNil() {
-		if(this == nil)
+		if(this == NILNode)
 		return true;
 		else
 		return false;

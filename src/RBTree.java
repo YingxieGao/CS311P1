@@ -18,11 +18,10 @@ public class RBTree {
 	 * initializes nil node as well.
 	 */
 	public RBTree() {
-		//TODO: Add code as needed.
-		private Node root;
-		private Node NILNode;
-		private int size;
-		private int height;
+		NILNode = new Node();
+        root = NILNode;
+        size = 0;
+		height = 0;
 		
 	}
 	
