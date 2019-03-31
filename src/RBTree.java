@@ -13,7 +13,7 @@ import java.util.List;
 public class RBTree{
 	
 	Node root;
-	Node nil;
+	Node nil = new Node();
 	int size;
 	int height;
 	
@@ -139,7 +139,15 @@ public class RBTree{
 		//??? int color red = 0???
 		z.color = 0;
 		insertFixup(T, z, y);
-		
+		inOrderUpdate(root);
+	}
+	
+	public void inOrderUpdate(Node x) {
+		if(x!=nil) {
+			inOrderUpdate(x.left);
+			x.updateNode();
+			inOrderUpdate(x.right);
+		}
 	}
 	
 	public void insertFixup(RBTree T, Node z, Node y) {
