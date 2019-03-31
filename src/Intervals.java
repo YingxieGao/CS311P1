@@ -2,20 +2,23 @@ import java.util.Arrays;
 
 /**
  * Team members:
- * @author John Doe
- * @author Jane Doe
+ * @author Yingxie Gao
+ * @author Zhenwei Su
+ * @author Jiawei Deng
  * 
  * A wrapper class for RBTree
  */
 public class Intervals {
-	//private int ID = 0; If deletion is done, this could be used to keep track of edpoints
-	//                    for the same interval.
-	
+	private int ID = 0; //If deletion is done, this could be used to keep track of edpoints
+	                    //    for the same interval.
+	RBTree tree = new RBTree();
 	/**
 	 * Constructor with no parameters.
 	 */
 	public Intervals() {
 		//TODO: Complete it as needed
+		
+		
 	}
 	
 	/**
@@ -32,7 +35,14 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		//TODO: Complete it as needed
+		Endpoint e1 = new Endpoint(a);
+		Node a1 = new Node(-1, e1);
+		tree.insert(tree, a1);
+		
+		Endpoint e2 = new Endpoint(b);
+		Node a2  =new Node(1, e2);
+		tree.insert(tree, a2);
+		
 	}
 	
 	/**
@@ -53,12 +63,12 @@ public class Intervals {
 	}
 	
 	/**
-	 * Finds the endpoint that has maximum overlap and returns its value. Thismethod should run in constant time.
+	 * Finds the endpoint that has maximum overlap and returns its value. This method should run in constant time.
 	 * @return
 	 */
 	int findPOM() {
-		//TODO: Modify it accordingly.
-		return 0;
+		
+		return tree.root.maxval;
 	}
 	
 	/**
