@@ -201,4 +201,35 @@ public class Node {
 		else
 		return false;
 	}
+
+	/**
+	 * Update Node when needed.
+	 */
+	public void updateNode ()
+	{
+		if(this.isNil()==true){
+			val = 0;
+		}
+		else{
+			this.val = this.left.val + this.p + this.right.val;
+		}
+		maxval = Math.max(this.left.maxval, Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
+		if(maxval == this.left.maxval)
+		{
+			emax = this.left.endpoint;
+		}
+		
+		else if(maxval == this.left.val + this.p)
+		{
+			emax = this.endpoint;
+		}
+		
+		else
+		{
+			emax = this.right.endpoint;
+		}
+
+		numLeft = this.left.numLeft + this.left.numRight +1;
+		numRight = this.right.numLeft + this.right.numRight +1;
+	}
 }
