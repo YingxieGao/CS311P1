@@ -55,7 +55,8 @@ public class RBTree{
 	 */
 	public int getSize() {
 		//TODO: Modify it accordingly.
-		return size;
+		//return root.numLeft + root.numRight + 1;
+		return 0;
 	}
 	
 	
@@ -65,7 +66,8 @@ public class RBTree{
 	 */
 	public int getHeight() {
 		//TODO: Modify it accordingly.
-		return height;
+		//return root.numLeft + 1;
+		return 0;
 	}
 	
 	//Add more functions as  you see fit.
@@ -92,8 +94,21 @@ public class RBTree{
 	
 	private void rightRotate(RBTree T, Node x) {
 		
+		Node y;
+		y = x.left;
+		x.left = y.right;
 		
-		
+		if(y.right!=null)
+			y.right.parent = x;
+		y.parent = x.parent;
+		if(x.parent == null)
+			T.root = y;
+		else if(x == x.parent.right)
+			x.parent.right = y;
+		else
+			x.parent.left = y;
+		y.right = x;
+		x.parent = y;
 	}
 	
 	private void insert(RBTree T, Node z) {
@@ -168,6 +183,34 @@ public class RBTree{
 		}
 		T.root.color = 1;
 	}
+	
+	private void RBTransplant(RBTree T, Node u, Node v){
+		if(u.parent == T.nil)
+			T.root = v;
+		else if(u == u.parent.left)
+			u.parent.left = v;
+		else
+			u.parent.right = v;
+		v.parent = u.parent;
+	}
+	
+	/*private void RBDelete(RBTree T, Node z) {
+		Node y = z;
+		Node x;
+		int yOrigColor = y.color;
+		if(z.left == T.nil) {
+			x = z.right;
+			RBTransplant(T, z, z.right);
+		}
+		else if(z.right == T.nil) {
+			x = z.left;
+			RBTransplant(T, z, z.left);
+		}
+		else {
+			y = Minimum(z.right);
+			
+		}
+	}*/
 	
 	
 	
