@@ -57,7 +57,7 @@ public class Node {
 			emax = this.endpoint;
 		}
 		
-		else if(maxval == this.left.val + this.p + this.right.maxval)
+		else
 		{
 			emax = this.right.endpoint;
 		}
