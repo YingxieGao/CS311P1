@@ -51,9 +51,9 @@ public class Intervals {
 	 * 
 	 * Deletes the interval whose ID (gener-ated byintervalInsert) isintervalID. Returnstrueif 
 	 * deletion was successful. Thismethod should run inO(logn)time.Note.TheintervalDeletemethod 
-	 * isoptional; that is, you are not requiredto implement it. However, your codemustprovide 
-	 * anintervalDeletemethodeven if you choose not to implement interval deletion. If you do not
-	 *  implementdeletion, theintervalDeletemethod should consist of just one line that returnsfalse.
+	 * isoptional; that is, you are not requiredto implement it. However, your code must provide 
+	 * an interval Delete method even if you choose not to implement interval deletion. If you do not
+	 *  implement deletion, the interva lDelete method should consist of just one line that returns false.
 	 * @param intervalID
 	 * @return
 	 */
