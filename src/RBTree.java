@@ -24,9 +24,6 @@ public class RBTree{
 	 */
 	public RBTree() {
 		nil = new Node();
-		root.left = nil;
-		root.right = nil;
-		root.parent = nil;
 		size = 0;
 		height = 0;
 		root = nil;
@@ -66,12 +63,19 @@ public class RBTree{
 	 */
 	public int getHeight() {
 		//TODO: Modify it accordingly.
+		/**Node y = nil;
+		int height = 0;
+		while(y.parent != root) {
+			y = y.parent;
+			height++;
+		}
+		return height;**/
 		return Math.max(root.numLeft + 1, root.numRight + 1);
 	}
 	
 	//Add more functions as  you see fit.
 	
-	private void leftRotate(RBTree T, Node x) {		
+	public void leftRotate(RBTree T, Node x) {		
 		
 		Node y;
 		y = x.right;
@@ -91,7 +95,7 @@ public class RBTree{
 		
 	}
 	
-	private void rightRotate(RBTree T, Node x) {
+	public void rightRotate(RBTree T, Node x) {
 		
 		Node y;
 		y = x.left;
@@ -110,7 +114,7 @@ public class RBTree{
 		x.parent = y;
 	}
 	
-	private void insert(RBTree T, Node z) {
+	public void insert(RBTree T, Node z) {
 		
 		Node y = T.nil;
 		Node x = T.root;
@@ -138,7 +142,7 @@ public class RBTree{
 		
 	}
 	
-	private void insertFixup(RBTree T, Node z, Node y) {
+	public void insertFixup(RBTree T, Node z, Node y) {
 		
 		while(z.parent.color == 0) {
 			
@@ -183,7 +187,7 @@ public class RBTree{
 		T.root.color = 1;
 	}
 	
-	private void RBTransplant(RBTree T, Node u, Node v){
+	public void RBTransplant(RBTree T, Node u, Node v){
 		if(u.parent == T.nil)
 			T.root = v;
 		else if(u == u.parent.left)
