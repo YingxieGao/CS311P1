@@ -36,11 +36,11 @@ public class Intervals {
 	 */
 	void intervalInsert(int a, int b) {
 		Endpoint e1 = new Endpoint(a);
-		Node a1 = new Node(-1, e1);
+		Node a1 = new Node(1, e1);
 		tree.insert(tree, a1);
 		
 		Endpoint e2 = new Endpoint(b);
-		Node a2  =new Node(1, e2);
+		Node a2  =new Node(-1, e2);
 		tree.insert(tree, a2);
 		
 	}
