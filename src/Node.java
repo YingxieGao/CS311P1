@@ -32,12 +32,12 @@ public class Node {
 	 * right endpoint. If left p=1, else p=-1;
 	 * @param endpoint the endpoint of this node
 	 */
-	public Node(int key, int p, Endpoint endpoint)
+	public Node(int p, Endpoint endpoint)
 	{
 		right = NILNode;
 		left = NILNode;
 		parent = null;
-		this.key = key;
+		this.key = endpoint.value;
 		this.p = p;
 		if(this.isNil()==true){
 			val = 0;
