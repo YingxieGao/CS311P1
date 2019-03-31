@@ -10,6 +10,14 @@
  */
 public class Endpoint {
 	int value;
+
+	/**
+	 * Constructor for Endpoint
+	 */
+	public Endpoint(int value)
+	{
+		this.value = value;
+	}
 	
 	/**
 	 * returns the endpoint value.  For example if the
