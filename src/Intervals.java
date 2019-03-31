@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Intervals {
 	private int ID = 0; //If deletion is done, this could be used to keep track of edpoints
 	                    //    for the same interval.
-	RBTree tree = new RBTree();
+	RBTree tree = new RBTree(); //create a new RB tree
 	/**
 	 * Constructor with no parameters.
 	 */
@@ -35,13 +35,13 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		Endpoint e1 = new Endpoint(a);
-		Node a1 = new Node(1, e1);
-		tree.insert(tree, a1);
+		Endpoint e1 = new Endpoint(a); //create the first endpoint for a
+		Node a1 = new Node(1, e1);     // make the endpoingt to a node and letf endpoint will add 1 
+		tree.insert(tree, a1);         // insert the left endpoingt as a node to RB tree
 		
-		Endpoint e2 = new Endpoint(b);
-		Node a2  =new Node(-1, e2);
-		tree.insert(tree, a2);
+		Endpoint e2 = new Endpoint(b); // cearte the right endpoing for b
+		Node a2  =new Node(-1, e2);    //make the endpoint to a node and right endpoingt will minues 1
+		tree.insert(tree, a2);         //insert the right endpoint as a node to RB tree
 		
 	}
 	
@@ -51,9 +51,9 @@ public class Intervals {
 	 * 
 	 * Deletes the interval whose ID (gener-ated byintervalInsert) isintervalID. Returnstrueif 
 	 * deletion was successful. Thismethod should run inO(logn)time.Note.TheintervalDeletemethod 
-	 * isoptional; that is, you are not requiredto implement it. However, your codemustprovide 
-	 * anintervalDeletemethodeven if you choose not to implement interval deletion. If you do not
-	 *  implementdeletion, theintervalDeletemethod should consist of just one line that returnsfalse.
+	 * isoptional; that is, you are not requiredto implement it. However, your code must provide 
+	 * an interval Delete method even if you choose not to implement interval deletion. If you do not
+	 *  implement deletion, the interva lDelete method should consist of just one line that returns false.
 	 * @param intervalID
 	 * @return
 	 */
@@ -68,7 +68,7 @@ public class Intervals {
 	 */
 	int findPOM() {
 		
-		return tree.root.maxval;
+		return tree.root.maxval;   // the value of the maxval in the root of RB tree is the maximun overlap 
 	}
 	
 	/**
