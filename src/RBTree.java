@@ -23,7 +23,7 @@ public class RBTree{
 	 * initializes nil node as well.
 	 */
 	public RBTree() {
-		//TODO: Add code as needed.
+		nil = new Node();
 		root.left = nil;
 		root.right = nil;
 		root.parent = nil;
@@ -56,8 +56,7 @@ public class RBTree{
 	 */
 	public int getSize() {
 		//TODO: Modify it accordingly.
-		//return root.numLeft + root.numRight + 1;
-		return 0;
+		return root.numLeft + root.numRight + 1;
 	}
 	
 	
@@ -67,8 +66,7 @@ public class RBTree{
 	 */
 	public int getHeight() {
 		//TODO: Modify it accordingly.
-		//return root.numLeft + 1;
-		return 0;
+		return Math.max(root.numLeft + 1, root.numRight + 1);
 	}
 	
 	//Add more functions as  you see fit.
