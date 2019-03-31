@@ -13,7 +13,7 @@ import java.util.List;
 public class RBTree{
 	
 	Node root;
-	Node nil = new Node();
+	Node nil;
 	int size;
 	int height;
 	
@@ -53,6 +53,7 @@ public class RBTree{
 	 */
 	public int getSize() {
 		//TODO: Modify it accordingly.
+		//return root.numLeft + root.numRight + 1;
 		return size;
 	}
 	
@@ -61,11 +62,35 @@ public class RBTree{
 	 * Returns the height of the tree.
 	 * @return height
 	 */
-
-
+	public int getHeight() {
+		//TODO: Modify it accordingly.
+		/**Node y = nil;
+		int height = 0;
+		while(y.parent != root) {
+			y = y.parent;
+			height++;
+		}
+		return height;**/
+		//return Math.max(root.numLeft + 1, root.numRight + 1);
+		//return (int) (Math.log(size) / Math.log(2.0));
+		//return root.height;
+		return height;
+	}
 	
 	//Add more functions as  you see fit.
 	
+	/**
+	 * updates the height of the RBTree.
+	 */
+	public void updateHeight() {
+		height = (int) (Math.log(size) / Math.log(2.0));
+	}
+	
+	/**
+	 * left rotate the RBTree at Node x.
+	 * @param T
+	 * @param x
+	 */
 	public void leftRotate(RBTree T, Node x) {		
 		
 		Node y = new Node();
@@ -83,10 +108,15 @@ public class RBTree{
 			x.parent.right = y;
 		y.left = x;
 		x.parent = y;
-		x.updateNode();;
-		
+		x.updateNode();
+		updateHeight();
 	}
 	
+	/**
+	 * right rotate the RBTree T at Node x.
+	 * @param T
+	 * @param x
+	 */
 	public void rightRotate(RBTree T, Node x) {
 		
 		Node y = new Node();
@@ -104,11 +134,18 @@ public class RBTree{
 			x.parent.left = y;
 		y.right = x;
 		x.parent = y;
-		x.updateNode();;
+		x.updateNode();
+		updateHeight();
 	}
 	
+	/**
+	 * insert a new Node z into the RBTree T.
+	 * @param T
+	 * @param z
+	 */
 	public void insert(RBTree T, Node z) {
 		
+		size++;
 		Node y = nil;
 		Node x = T.root;
 		
@@ -136,18 +173,16 @@ public class RBTree{
 		z.right = nil;
 		z.color = 0;
 		z.updateNode();
+		updateHeight();
 		insertFixup(T, z);
 
 	}
 	
-	public void inOrderUpdate(Node x) {
-		if(x!=nil) {
-			inOrderUpdate(x.left);
-			x.updateNode();
-			inOrderUpdate(x.right);
-		}
-	}
-	
+	/**
+	 * fix up the colors, positions of a RBTree T at Node z.
+	 * @param T
+	 * @param z
+	 */
 	public void insertFixup(RBTree T, Node z) {
 		
 		while(z.parent.color == 0) {
@@ -194,34 +229,5 @@ public class RBTree{
 		}
 		T.root.color = 1;
 	}
-	
-	public void RBTransplant(RBTree T, Node u, Node v){
-		if(u.parent == T.nil)
-			T.root = v;
-		else if(u == u.parent.left)
-			u.parent.left = v;
-		else
-			u.parent.right = v;
-		v.parent = u.parent;
-	}
-	
-	/*private void RBDelete(RBTree T, Node z) {
-		Node y = z;
-		Node x;
-		int yOrigColor = y.color;
-		if(z.left == T.nil) {
-			x = z.right;
-			RBTransplant(T, z, z.right);
-		}
-		else if(z.right == T.nil) {
-			x = z.left;
-			RBTransplant(T, z, z.left);
-		}
-		else {
-			y = Minimum(z.right);
-			
-		}
-	}*/
-	
 	
 }
