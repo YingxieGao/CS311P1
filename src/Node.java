@@ -21,8 +21,6 @@ public class Node {
 	Endpoint endpoint;
 	Endpoint emax;
 	int color;
-	int numLeft;
-	int numRight;
 	
 	/**
 	 * Initializes a new Node object with its key, and the p.
@@ -64,8 +62,6 @@ public class Node {
 
 		color = 1;
 
-		numLeft = this.left.numLeft + this.left.numRight +1;
-		numRight = this.right.numLeft + this.right.numRight +1;
 	}
 
 	/**
@@ -80,8 +76,6 @@ public class Node {
 		endpoint = null;
 		emax = null;
 		color = 1;
-		numLeft = 0;
-		numRight = 0;
 	}
 
 	/*
@@ -208,11 +202,13 @@ public class Node {
 	public void updateNode ()
 	{
 		if(this.isNil()==true){
-			val = 0;
+				val =0;
+				maxval =0;;
+				emax =NILNode.getEmax();
 		}
 		else{
 			this.val = this.left.val + this.p + this.right.val;
-		}
+		
 		maxval = Math.max(this.left.maxval, Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
 		if(maxval == this.left.maxval)
 		{
@@ -229,7 +225,8 @@ public class Node {
 			emax = this.right.endpoint;
 		}
 
-		numLeft = this.left.numLeft + this.left.numRight +1;
-		numRight = this.right.numLeft + this.right.numRight +1;
+		this.parent.updateNode();
+	}
+
 	}
 }

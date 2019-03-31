@@ -9,7 +9,7 @@ import java.util.Arrays;
  * A wrapper class for RBTree
  */
 public class Intervals {
-	private int ID = 0; //If deletion is done, this could be used to keep track of edpoints
+	//private int ID = 0; //If deletion is done, this could be used to keep track of edpoints
 	                    //    for the same interval.
 	RBTree tree = new RBTree(); //create a new RB tree
 	/**
@@ -96,7 +96,9 @@ public class Intervals {
 		for(int i=0; i<points.length; i++) {
 			//System.out.println("Inserting: "+ Arrays.toString(points[i]));
 			intv.intervalInsert(points[i][0], points[i][1]);
+			System.out.println(intv.getRBTree().getRoot());
 		}
 		System.out.println("POM is: "+ intv.findPOM()); //Should return 3.
+
 	}
 }

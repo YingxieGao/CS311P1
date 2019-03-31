@@ -53,7 +53,7 @@ public class RBTree{
 	 */
 	public int getSize() {
 		//TODO: Modify it accordingly.
-		return root.numLeft + root.numRight + 1;
+		return size;
 	}
 	
 	
@@ -61,30 +61,21 @@ public class RBTree{
 	 * Returns the height of the tree.
 	 * @return height
 	 */
-	public int getHeight() {
-		//TODO: Modify it accordingly.
-		/**Node y = nil;
-		int height = 0;
-		while(y.parent != root) {
-			y = y.parent;
-			height++;
-		}
-		return height;**/
-		return Math.max(root.numLeft + 1, root.numRight + 1);
-	}
+
+
 	
 	//Add more functions as  you see fit.
 	
 	public void leftRotate(RBTree T, Node x) {		
 		
-		Node y;
+		Node y = new Node();
 		y = x.right;
 		x.right = y.left;
 		
-		if(y.left!=null)
+		if(y.left!=nil)
 			y.left.parent = x;
 		y.parent = x.parent;
-		if(x.parent == null)
+		if(x.parent == nil)
 			T.root = y;
 		else if(x == x.parent.left)
 			x.parent.left = y;
@@ -92,19 +83,20 @@ public class RBTree{
 			x.parent.right = y;
 		y.left = x;
 		x.parent = y;
+		x.updateNode();;
 		
 	}
 	
 	public void rightRotate(RBTree T, Node x) {
 		
-		Node y;
+		Node y = new Node();
 		y = x.left;
 		x.left = y.right;
 		
-		if(y.right!=null)
+		if(y.right!=nil)
 			y.right.parent = x;
 		y.parent = x.parent;
-		if(x.parent == null)
+		if(x.parent == nil)
 			T.root = y;
 		else if(x == x.parent.right)
 			x.parent.right = y;
@@ -112,34 +104,40 @@ public class RBTree{
 			x.parent.left = y;
 		y.right = x;
 		x.parent = y;
+		x.updateNode();;
 	}
 	
 	public void insert(RBTree T, Node z) {
 		
-		Node y = T.nil;
+		Node y = nil;
 		Node x = T.root;
 		
-		while(x!=T.nil) {
+		while(x!=nil) {
 			y = x;
 			if(z.key < x.key)
 				x = x.left;
 			else
 				x = x.right;
 		}
-		
-		if(y==T.nil)
+		z.parent = y;
+		if(y==nil){
 			T.root = z;
+			z.color=1;
+			z.left = nil;
+			z.right = nil;
+			return;
+		}
 		else if(z.key < y.key)
 			y.left = z;
 		else
 			y.right = z;
 		
-		z.left = T.nil;
-		z.right = T.nil;
-		//??? int color red = 0???
+		z.left = nil;
+		z.right = nil;
 		z.color = 0;
-		insertFixup(T, z, y);
-		inOrderUpdate(root);
+		z.updateNode();
+		insertFixup(T, z);
+
 	}
 	
 	public void inOrderUpdate(Node x) {
@@ -150,11 +148,12 @@ public class RBTree{
 		}
 	}
 	
-	public void insertFixup(RBTree T, Node z, Node y) {
+	public void insertFixup(RBTree T, Node z) {
 		
 		while(z.parent.color == 0) {
 			
 			if(z.parent == z.parent.parent.left) {
+				Node y = new Node();
 				y = z.parent.parent.right;
 				if(y.color == 0) {
 					z.parent.color = 1;
@@ -173,6 +172,7 @@ public class RBTree{
 				}
 			}
 			else {
+				Node y =new Node();
 				y = z.parent.parent.left;
 				if(y.color == 0) {
 					z.parent.color = 1;
@@ -222,7 +222,6 @@ public class RBTree{
 			
 		}
 	}*/
-	
 	
 	
 }
