@@ -21,6 +21,8 @@ public class Node {
 	Endpoint endpoint;
 	Endpoint emax;
 	int color;
+	int numLeft;
+	int numRight;
 	
 	/**
 	 * Initializes a new Node object with its key, and the p.
@@ -59,6 +61,9 @@ public class Node {
 		}
 
 		color = 1;
+
+		numLeft = this.left.numLeft + this.left.numRight;
+		numRight = this.right.numLeft + this.right.numRight;
 	}
 
 	/**
@@ -73,6 +78,8 @@ public class Node {
 		endpoint = null;
 		emax = null;
 		color = 1;
+		numLeft = 0;
+		numRight = 0;
 	}
 
 	/*
