@@ -51,19 +51,21 @@ public class Node {
 		{
 			emax = this.left.endpoint;
 		}
-		if(maxval == this.left.val + this.p)
+		
+		else if(maxval == this.left.val + this.p)
 		{
 			emax = this.endpoint;
 		}
-		if(maxval == this.left.val + this.p + this.right.maxval)
+		
+		else if(maxval == this.left.val + this.p + this.right.maxval)
 		{
 			emax = this.right.endpoint;
 		}
 
 		color = 1;
 
-		numLeft = this.left.numLeft + this.left.numRight;
-		numRight = this.right.numLeft + this.right.numRight;
+		numLeft = this.left.numLeft + this.left.numRight +1;
+		numRight = this.right.numLeft + this.right.numRight +1;
 	}
 
 	/**
