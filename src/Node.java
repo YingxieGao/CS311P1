@@ -36,7 +36,7 @@ public class Node {
 	{
 		right = NILNode;
 		left = NILNode;
-		parent = null;
+		parent = NILNode;
 		this.key = endpoint.value;
 		this.p = p;
 		if(this.isNil()==true){
