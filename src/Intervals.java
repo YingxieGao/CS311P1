@@ -77,7 +77,7 @@ public class Intervals {
 	 */
 	RBTree getRBTree() {
 		//TODO: Modify it accordingly.
-		return null;
+		return tree;
 	}
 	
 	
