@@ -1,7 +1,11 @@
 import java.util.Arrays;
 
 /**
- * Team members:
+* Team members:
+ * Yingxie Gao
+ * Zhenwei Su
+ * Jiawei Deng
+ * 
  * @author Yingxie Gao
  * @author Zhenwei Su
  * @author Jiawei Deng
@@ -16,7 +20,6 @@ public class Intervals {
 	 * Constructor with no parameters.
 	 */
 	public Intervals() {
-		//TODO: Complete it as needed
 		
 		
 	}
@@ -58,7 +61,7 @@ public class Intervals {
 	 * @return
 	 */
 	boolean intervalDelete(int intervalID) {
-		//TODO: Complete it as needed (This is optional so you can leave it as it is)
+		
 		return false;
 	}
 	
@@ -76,7 +79,6 @@ public class Intervals {
 	 * @return
 	 */
 	RBTree getRBTree() {
-		//TODO: Modify it accordingly.
 		return tree;
 	}
 	
