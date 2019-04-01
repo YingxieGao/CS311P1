@@ -1,12 +1,9 @@
 /**
- * Team members:
- * Yingxie Gao
- * Zhenwei Su
- * Jiawei Deng
+ * Team members: Yingxie Gao Zhenwei Su Jiawei Deng
  * 
  * @author Yingxie Gao
  * 
- * Endpoint class for Node.
+ *         Endpoint class for Node.
  */
 public class Endpoint {
 	int value;
@@ -14,19 +11,18 @@ public class Endpoint {
 	/**
 	 * Constructor for Endpoint
 	 */
-	public Endpoint(int value)
-	{
+	public Endpoint(int value) {
 		this.value = value;
 	}
-	
+
 	/**
-	 * returns the endpoint value.  For example if the
-	 * End point object represents the left endpoint of the 
-	 * interval [1,3], this would return 1.
+	 * returns the endpoint value. For example if the End point object represents
+	 * the left endpoint of the interval [1,3], this would return 1.
+	 * 
 	 * @return
 	 */
 	public int getValue() {
-		
+
 		return value;
 	}
 }

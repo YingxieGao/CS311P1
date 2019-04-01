@@ -1,11 +1,7 @@
 /**
- * Team members:
- * Yingxie Gao
- * Zhenwei Su
- * Jiawei Deng
+ * Team members: Yingxie Gao Zhenwei Su Jiawei Deng
  * 
- * @author Yingxie Gao
- *         Node class for RBTree.
+ * @author Yingxie Gao Node class for RBTree.
  */
 public class Node {
 
@@ -21,42 +17,38 @@ public class Node {
 	Endpoint endpoint;
 	Endpoint emax;
 	int color;
-	
+
 	/**
 	 * Initializes a new Node object with its key, and the p.
 	 * 
-	 * @param key e of this node
-	 * @param p p(e), which is to tell if this node is a left or
-	 * right endpoint. If left p=1, else p=-1;
+	 * @param key      e of this node
+	 * @param p        p(e), which is to tell if this node is a left or right
+	 *                 endpoint. If left p=1, else p=-1;
 	 * @param endpoint the endpoint of this node
 	 */
-	public Node(int p, Endpoint endpoint)
-	{
+	public Node(int p, Endpoint endpoint) {
 		right = NILNode;
 		left = NILNode;
 		parent = NILNode;
 		this.key = endpoint.value;
 		this.p = p;
-		if(this.isNil()==true){
+		if (this.isNil() == true) {
 			val = 0;
-		}
-		else{
+		} else {
 			this.val = this.left.val + this.p + this.right.val;
 		}
-		maxval = Math.max(this.left.maxval, Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
+		maxval = Math.max(this.left.maxval,
+				Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
 		this.endpoint = endpoint;
-		if(maxval == this.left.maxval)
-		{
+		if (maxval == this.left.maxval) {
 			emax = this.left.endpoint;
 		}
-		
-		else if(maxval == this.left.val + this.p)
-		{
+
+		else if (maxval == this.left.val + this.p) {
 			emax = this.endpoint;
 		}
-		
-		else
-		{
+
+		else {
 			emax = this.right.endpoint;
 		}
 
@@ -79,22 +71,14 @@ public class Node {
 	}
 
 	/*
-	static Node NILNode;
-    static {
-	NILNode = new Node();
-	NILNode.parent = NIL;
-	NILNode.left = NIL;
-	NILNode.right = NIL;
-	NILNode.val = 0;
-	NILNode.maxval = 0;
-	NILNode.endpoint = null;
-	NILNode.emax = null;
-	NILNode.color = 1;
-	}
-	*/
-	
+	 * static Node NILNode; static { NILNode = new Node(); NILNode.parent = NIL;
+	 * NILNode.left = NIL; NILNode.right = NIL; NILNode.val = 0; NILNode.maxval = 0;
+	 * NILNode.endpoint = null; NILNode.emax = null; NILNode.color = 1; }
+	 */
+
 	/**
 	 * Returns the parent of this node.
+	 * 
 	 * @return
 	 */
 	public Node getParent() {
@@ -190,43 +174,40 @@ public class Node {
 	 * @return
 	 */
 	public boolean isNil() {
-		if(this == NILNode)
-		return true;
+		if (this == NILNode)
+			return true;
 		else
-		return false;
+			return false;
 	}
 
 	/**
 	 * Update Node when needed.
 	 */
-	public void updateNode ()
-	{
-		if(this.isNil()==true){
-				val =0;
-				maxval =0;;
-				emax =NILNode.getEmax();
-		}
-		else{
+	public void updateNode() {
+		if (this.isNil() == true) {
+			val = 0;
+			maxval = 0;
+			;
+			emax = NILNode.getEmax();
+		} else {
 			this.val = this.left.val + this.p + this.right.val;
-		
-		maxval = Math.max(this.left.maxval, Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
-		if(maxval == this.left.maxval)
-		{
-			emax = this.left.endpoint;
-		}
-		
-		else if(maxval == this.left.val + this.p)
-		{
-			emax = this.endpoint;
-		}
-		
-		else
-		{
-			emax = this.right.endpoint;
-		}
 
-		this.parent.updateNode();
-	}
+			maxval = Math.max(this.left.maxval,
+					Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
+			if (maxval == this.left.maxval) {
+				emax = this.left.endpoint;
+			}
+
+			else if (maxval == this.left.val + this.p) {
+				emax = this.endpoint;
+			}
+
+			else {
+				emax = this.right.endpoint;
+			}
+
+			this.parent.updateNode();
+		}
 
 	}
 }
