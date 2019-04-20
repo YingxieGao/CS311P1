@@ -76,7 +76,7 @@ public class Intervals {
 	 */
 	int findPOM() {
 
-		return tree.root.maxval; // the value of the maxval in the root of RB tree is the maximun overlap
+		return tree.getRoot().getEmax().getValue(); // the value of the maxval in the root of RB tree is the maximun overlap
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class Intervals {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int points[][] = { { 0, 4 }, { 1, 6 }, { 3, 9 }, { 7, 11 } };
+		int points[][] = { { 0, 4 }, { 1, 6 }, { 3, 9 }, { 7, 11 }};
 		Intervals intv = new Intervals();
 
 		for (int i = 0; i < points.length; i++) {

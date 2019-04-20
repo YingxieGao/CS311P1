@@ -65,6 +65,8 @@ public class Node {
 		parent = NILNode;
 		val = 0;
 		maxval = 0;
+		p=0;
+		key=-1;
 		endpoint = null;
 		emax = null;
 		color = 1;
@@ -186,27 +188,9 @@ public class Node {
 	public void updateNode() {
 		if (this.isNil() == true) {
 			val = 0;
-			maxval = 0;
-			;
-			emax = NILNode.getEmax();
 		} else {
 			this.val = this.left.val + this.p + this.right.val;
 
-			maxval = Math.max(this.left.maxval,
-					Math.max(this.left.val + this.p, this.left.val + this.p + this.right.maxval));
-			if (maxval == this.left.maxval) {
-				emax = this.left.endpoint;
-			}
-
-			else if (maxval == this.left.val + this.p) {
-				emax = this.endpoint;
-			}
-
-			else {
-				emax = this.right.endpoint;
-			}
-
-			this.parent.updateNode();
 		}
 
 	}

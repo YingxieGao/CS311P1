@@ -158,10 +158,6 @@ public class RBTree {
 		z.parent = y;
 		if (y == nil) {
 			T.root = z;
-			z.color = 1;
-			z.left = nil;
-			z.right = nil;
-			return;
 		} else if (z.key < y.key)
 			y.left = z;
 		else
@@ -170,9 +166,10 @@ public class RBTree {
 		z.left = nil;
 		z.right = nil;
 		z.color = 0;
+		insertFixup(T, z);
 		z.updateNode();
 		updateHeight();
-		insertFixup(T, z);
+		findMaxVal(T.root);
 
 	}
 
@@ -225,5 +222,28 @@ public class RBTree {
 		}
 		T.root.color = 1;
 	}
+	/**
+	 * findMaxval
+	 * @param n
+	 */
+	public void findMaxVal(Node n) {
+        if(n == this.nil) {
+            n.maxval = 0;
+            return;
+        }
+        findMaxVal(n.left);
+        findMaxVal(n.right);
+
+        n.maxval = Math.max(n.left.maxval, n.left.val + n.p);
+        n.maxval = Math.max(n.maxval, n.left.val + n.p + n.right.maxval);
+
+        if(n.maxval == n.left.val + n.p){
+            n.emax = n.getEndpoint();
+        } else if(n.maxval == n.left.val + n.p + n.right.maxval){
+            n.emax = n.right.emax;
+        }  else if(n.maxval == n.left.maxval) {
+            n.emax = n.left.emax;
+        }
+    }
 
 }
